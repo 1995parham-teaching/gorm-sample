@@ -41,7 +41,7 @@ func NewMysql(cfg *Config) (*gorm.DB, error) {
 func main() {
 	dbConfig := Config{
 		Username: "root",
-		Password: "pass",
+		Password: "password",
 		Host:     "127.0.0.1",
 		Port:     3306,
 		Database: "gorm",
@@ -53,7 +53,12 @@ func main() {
 	}
 
 	cmd := &cobra.Command{Short: short, Long: long}
-	cmd.AddCommand(simple.Command(db), one2one.Command(), one2many.Command(), many2many.Command())
+	cmd.AddCommand(
+		simple.Command(db),
+		one2one.Command(db),
+		one2many.Command(db),
+		many2many.Command(db),
+	)
 
 	if err := cmd.Execute(); err != nil {
 		fmt.Println(err.Error())

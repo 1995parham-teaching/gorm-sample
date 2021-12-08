@@ -1,6 +1,8 @@
 package simple
 
 import (
+	"github.com/cng-by-example/gorm-sample/internal/models"
+
 	"github.com/spf13/cobra"
 	"gorm.io/gorm"
 )
@@ -13,17 +15,18 @@ func Command(db *gorm.DB) *cobra.Command {
 }
 
 func main(db *gorm.DB) {
-	// dbConfig := gorm.Config{
-	// 	Username: "root",
-	// 	Password: "hp590mt",
-	// 	Host:     "127.0.0.1",
-	// 	Port:     3306,
-	// 	Database: "gorm",
-	// }
+	db.Migrator().DropTable(&models.Owner{})
+	db.Migrator().CreateTable(&models.Owner{})
 
-	// db, err := gorm.NewMysql(&dbConfig)
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// internal.Run(db)
+	sample := models.Owner{
+		FirstName: "Mohammad",
+		LastName:  "Nasr",
+	}
+
+	db.Create(&sample)
+
+	sample.FirstName = "Parham"
+	sample.LastName = "Alvani"
+
+	db.Debug().Save(&sample)
 }
