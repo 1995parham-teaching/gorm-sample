@@ -1,4 +1,4 @@
-package models
+package simple
 
 type Owner struct {
 	Id        uint `gorm:"primarykey"`

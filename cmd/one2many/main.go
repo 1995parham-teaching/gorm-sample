@@ -13,5 +13,6 @@ func Command(db *gorm.DB) *cobra.Command {
 }
 
 func main(db *gorm.DB) {
-	// internal.Run(db)
+	db.Migrator().DropTable(&Owner{}, &Book{})
+	db.Migrator().CreateTable(&Owner{}, &Book{})
 }

@@ -1,7 +1,7 @@
 package simple
 
 import (
-	"github.com/cng-by-example/gorm-sample/internal/models"
+	"fmt"
 
 	"github.com/spf13/cobra"
 	"gorm.io/gorm"
@@ -15,18 +15,28 @@ func Command(db *gorm.DB) *cobra.Command {
 }
 
 func main(db *gorm.DB) {
-	db.Migrator().DropTable(&models.Owner{})
-	db.Migrator().CreateTable(&models.Owner{})
+	db.Migrator().DropTable(&Owner{})
+	db.Migrator().CreateTable(&Owner{})
 
-	sample := models.Owner{
+	sample := Owner{
 		FirstName: "Mohammad",
 		LastName:  "Nasr",
 	}
 
 	db.Create(&sample)
 
-	sample.FirstName = "Parham"
-	sample.LastName = "Alvani"
+	sample.LastName = "Nasr Esfahani"
 
 	db.Debug().Save(&sample)
+
+	var owner Owner
+	db.Debug().First(&owner)
+	fmt.Println(owner)
+
+	if owner.FirstName != "" {
+		db.Debug().Delete(&owner)
+	}
+
+	db.Debug().First(&owner)
+	fmt.Println(owner)
 }
