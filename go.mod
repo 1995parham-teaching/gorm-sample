@@ -1,4 +1,4 @@
-module test-gorm
+module github.com/cng-by-example/gorm-sample
 
 go 1.17
 

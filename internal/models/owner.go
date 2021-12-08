@@ -1,6 +1,7 @@
 package models
 
 type Owner struct {
+	Id        uint `gorm:"primarykey"`
 	FirstName string
 	LastName  string
 }

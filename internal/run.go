@@ -7,7 +7,13 @@ import (
 )
 
 func Run(db *gorm.DB) {
-	// db.AutoMigrate(&User{}, &CreditCard{})
 	db.Statement.Migrator().DropTable(&models.Owner{})
 	db.Migrator().CreateTable(&models.Owner{})
+
+	sample := models.Owner{
+		FirstName: "Mohammad",
+		LastName:  "Nasr",
+	}
+
+	db.Create(&sample)
 }
