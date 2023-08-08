@@ -1,4 +1,4 @@
-<h1> GORM sample </h1>
+<h1 align="center"> GORM sample </h1>
 
 <p align="center">
     <img src="./.github/assets/banner.svg" height="200">
