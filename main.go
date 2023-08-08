@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"time"
 
@@ -12,10 +13,10 @@ import (
 
 type User struct {
 	gorm.Model
-	ID       int `gorm:"primaryKey"`
-	Name     string
-	Email    string
-	Birthday time.Time
+	ID       int    `gorm:"primaryKey"`
+	Name     string `gorm:"not null; index"`
+	Email    string `gorm:"not null; check:,email ~* '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'"`
+	Birthday sql.NullTime
 }
 
 func main() {
@@ -45,18 +46,23 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// I really love the way Go has for describing the date/time formats.
+	// you write down 2 Jan 2006 15:04:00 -0700 in your desired format
+	// and it will figure your format out.
 	birthday, err := time.Parse("2 January 2006 at 15:04 -0700", "12 October 1999 at 19:20 +0330")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// create user with gorm
-	// nolint: exhaustivestruct
+	// create user with gorm.
+	// please pay attention to time. you must provide the valid field when you are using
+	// NullTime.
 	db.Create(&User{
+		Model:    gorm.Model{},
 		ID:       1,
 		Name:     "Elahe Dastan",
 		Email:    "elahe.dstn@gmail.com",
-		Birthday: birthday,
+		Birthday: sql.NullTime{Time: birthday, Valid: true},
 	})
 
 	var user User
