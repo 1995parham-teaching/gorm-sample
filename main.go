@@ -27,7 +27,7 @@ func main() {
 
 	dsn := "host=127.0.0.1 user=postgres password=postgres DB.name=pgsql port=5432 sslmode=disable"
 
-	// nolint: exhaustivestruct
+	// nolint: exhaustruct
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: zapgorm2.New(logger),
 	})
@@ -36,13 +36,11 @@ func main() {
 	}
 
 	// migrate the schema with gorm migrator manually
-	// nolint: exhaustivestruct
-	if err := db.Migrator().DropTable(&User{}); err != nil {
+	if err := db.Migrator().DropTable(new(User)); err != nil {
 		log.Fatal(err)
 	}
 
-	// nolint: exhaustivestruct
-	if err := db.Migrator().CreateTable(&User{}); err != nil {
+	if err := db.Migrator().CreateTable(new(User)); err != nil {
 		log.Fatal(err)
 	}
 
@@ -57,6 +55,7 @@ func main() {
 	// create user with gorm.
 	// please pay attention to time. you must provide the valid field when you are using
 	// NullTime.
+	// nolint: exhaustruct
 	db.Create(&User{
 		Model:    gorm.Model{},
 		ID:       1,
