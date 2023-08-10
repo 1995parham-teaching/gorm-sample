@@ -11,12 +11,17 @@ Here we want to demonstrate some of its features using a very simple application
 
 ## GORM
 
-GORM is a go's object relational mapping.
+Here is the official GORM package:
 
 - [gorm.io/gorm](https://pkg.go.dev/gorm.io/gorm)
+
+The followings are GORM drivers for popular databases:
+
 - [gorm.io/driver/postgres](https://pkg.go.dev/gorm.io/driver/postgres)
 - [gorm.io/driver/mysql](https://pkg.go.dev/gorm.io/driver/mysql)
 - [gorm.io/driver/sqlite](https://pkg.go.dev/gorm.io/driver/sqlite)
+
+In the following code we create connection using GORM and have [zap](https://github.com/uber-go/zap) as our logger:
 
 ```go
 import (
