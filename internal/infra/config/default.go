@@ -14,7 +14,7 @@ func Default() Config {
 	return Config{
 		Out: fx.Out{},
 		Database: db.Config{
-			DSN:             "host=127.0.0.1 user=postgres password=postgres DB.name=pgsql port=5432 sslmode=disable",
+			DSN:             "postgres://postgres:postgres@127.0.0.1:5432/pgsql?search_path=public&sslmode=disable",
 			ConnMaxLifeTime: 10 * time.Second,
 			ConnMaxIdleTime: 5 * time.Second,
 			MaxOpenConns:    10,
