@@ -4,10 +4,12 @@ import (
 	"time"
 
 	"github.com/1995parham-teaching/gorm-sample/internal/infra/db"
+	"github.com/1995parham-teaching/gorm-sample/internal/infra/logger"
 	"go.uber.org/fx"
 )
 
 // Default return default configuration.
+// nolint: gomnd
 func Default() Config {
 	return Config{
 		Out: fx.Out{},
@@ -17,6 +19,9 @@ func Default() Config {
 			ConnMaxIdleTime: 5 * time.Second,
 			MaxOpenConns:    10,
 			MaxIdleConns:    5,
+		},
+		Logger: logger.Config{
+			Level: "debug",
 		},
 	}
 }

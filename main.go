@@ -8,6 +8,7 @@ import (
 	"github.com/1995parham-teaching/gorm-sample/internal/domain/model"
 	"github.com/1995parham-teaching/gorm-sample/internal/infra/config"
 	"github.com/1995parham-teaching/gorm-sample/internal/infra/db"
+	"github.com/1995parham-teaching/gorm-sample/internal/infra/logger"
 	"go.uber.org/fx"
 	"go.uber.org/fx/fxevent"
 	"go.uber.org/zap"
@@ -18,6 +19,7 @@ func main() {
 	fx.New(
 		fx.Provide(config.Provide),
 		fx.Provide(db.Provide),
+		fx.Provide(logger.Provide),
 		fx.WithLogger(func(logger *zap.Logger) fxevent.Logger {
 			return &fxevent.ZapLogger{Logger: logger}
 		}),
@@ -25,7 +27,7 @@ func main() {
 	).Run()
 }
 
-func start(db *gorm.DB, logger *zap.Logger) {
+func start(shutdowner fx.Shutdowner, db *gorm.DB, logger *zap.Logger) {
 	// I really love the way Go has for describing the date/time formats.
 	// you write down 2 Jan 2006 15:04:00 -0700 in your desired format
 	// and it will figure your format out.
@@ -55,4 +57,6 @@ func start(db *gorm.DB, logger *zap.Logger) {
 
 	db.Find(&users)
 	logger.Info("users from database", zap.Any("users", users))
+
+	_ = shutdowner.Shutdown()
 }

@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/1995parham-teaching/gorm-sample/internal/infra/db"
+	"github.com/1995parham-teaching/gorm-sample/internal/infra/logger"
 	"github.com/knadh/koanf/parsers/toml"
 	"github.com/knadh/koanf/providers/env"
 	"github.com/knadh/koanf/providers/file"
@@ -22,7 +23,8 @@ const prefix = "gorm_sample_"
 type Config struct {
 	fx.Out
 
-	Database db.Config `json:"database"  koanf:"database"`
+	Database db.Config     `json:"database,omitempty" koanf:"database"`
+	Logger   logger.Config `json:"logger,omitempty"   koanf:"logger"`
 }
 
 func Provide() Config {
