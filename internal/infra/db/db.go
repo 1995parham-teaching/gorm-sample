@@ -1,6 +1,7 @@
 package db
 
 import (
+	"fmt"
 	"time"
 
 	"go.uber.org/zap"
@@ -18,18 +19,20 @@ type Config struct {
 	ConnMaxLifeTime time.Duration
 }
 
-func Provide(cfg Config, logger *zap.Logger) *gorm.DB {
+func Provide(cfg Config, logger *zap.Logger) (*gorm.DB, error) {
 	// nolint: exhaustruct
 	db, err := gorm.Open(postgres.Open(cfg.DSN), &gorm.Config{
 		Logger: zapgorm2.New(logger),
 	})
 	if err != nil {
-		logger.Fatal("database connection failed", zap.Error(err))
+		return nil, fmt.Errorf("database connection failed %w", err)
 	}
+
+	db.Debug()
 
 	sqlDB, err := db.DB()
 	if err != nil {
-		logger.Fatal("acquiring sql database failed", zap.Error(err))
+		return nil, fmt.Errorf("acquiring sql database failed", err)
 	}
 
 	sqlDB.SetMaxIdleConns(cfg.MaxIdleConns)
@@ -37,5 +40,5 @@ func Provide(cfg Config, logger *zap.Logger) *gorm.DB {
 	sqlDB.SetConnMaxIdleTime(cfg.ConnMaxIdleTime)
 	sqlDB.SetConnMaxLifetime(cfg.ConnMaxLifeTime)
 
-	return db
+	return db, nil
 }
