@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	stmts, err := gormschema.New("mysql").Load(new(model.User))
+	stmts, err := gormschema.New("postgres").Load(new(model.User))
 	if err != nil {
 		log.Fatalf("failed to load gorm schema: %v", err)
 	}
