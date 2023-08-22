@@ -11,12 +11,12 @@ import (
 )
 
 type Config struct {
-	DSN string
+	DSN string `json:"dsn,omitempty" koanf:"dsn"`
 
-	MaxIdleConns    int
-	MaxOpenConns    int
-	ConnMaxIdleTime time.Duration
-	ConnMaxLifeTime time.Duration
+	MaxIdleConns    int           `json:"max_idle_conns,omitempty"     koanf:"max_idle_conns"`
+	MaxOpenConns    int           `json:"max_open_conns,omitempty"     koanf:"max_open_conns"`
+	ConnMaxIdleTime time.Duration `json:"conn_max_idle_time,omitempty" koanf:"conn_max_idle_time"`
+	ConnMaxLifeTime time.Duration `json:"conn_max_life_time,omitempty" koanf:"conn_max_life_time"`
 }
 
 func Provide(cfg Config, logger *zap.Logger) (*gorm.DB, error) {
