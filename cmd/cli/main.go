@@ -33,20 +33,22 @@ func start(shutdowner fx.Shutdowner, db *gorm.DB, logger *zap.Logger) {
 	// and it will figure your format out.
 	birthday, err := time.Parse("2 January 2006 at 15:04 -0700", "12 October 1999 at 19:20 +0330")
 	if err != nil {
-		log.Fatal(err)
+		logger.Fatal("cannot parse datetime into given format", zap.Error(err))
 	}
 
 	// create user with gorm.
 	// please pay attention to time. you must provide the valid field when you are using
 	// NullTime.
 	// nolint: exhaustruct
-	db.Create(&model.User{
+	if err := db.Create(&model.User{
 		Model:    gorm.Model{},
 		ID:       1,
 		Name:     "Elahe Dastan",
 		Email:    "elahe.dstn@gmail.com",
 		Birthday: sql.NullTime{Time: birthday, Valid: true},
-	})
+	}).Error; err != nil {
+		logger.Fatal("cannot create user", zap.Error(err))
+	}
 
 	var user model.User
 
