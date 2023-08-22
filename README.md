@@ -14,6 +14,18 @@ Here we want to demonstrate some of its features using a very simple application
 Also, using GORM's [`AutoMigrate`](https://gorm.io/docs/migration.html) feature is not suitable for production
 because you cannot findout what is going to be changed on each commit. [Atlas](https://atlasgo.io/getting-started) can help you with this.
 
+Atlas works based on its configuration defined in `atlas.hcl`. You can apply migrations with
+
+```bash
+atlas migrate apply --env local
+```
+
+and see the differences with
+
+```bash
+atlas migrate diff --env local
+```
+
 ## GORM
 
 Here is the official GORM package:
