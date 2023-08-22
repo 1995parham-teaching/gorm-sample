@@ -11,9 +11,10 @@ import (
 )
 
 func main() {
-	stmts, err := gormschema.New("mysql").Load(&model.User{})
+	stmts, err := gormschema.New("mysql").Load(new(model.User))
 	if err != nil {
 		log.Fatalf("failed to load gorm schema: %v", err)
 	}
-	io.WriteString(os.Stdout, stmts)
+
+	_, _ = io.WriteString(os.Stdout, stmts)
 }
