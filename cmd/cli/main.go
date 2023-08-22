@@ -17,8 +17,8 @@ import (
 func main() {
 	fx.New(
 		fx.Provide(config.Provide),
-		fx.Provide(db.Provide),
 		fx.Provide(logger.Provide),
+		fx.Provide(db.Provide),
 		fx.WithLogger(func(logger *zap.Logger) fxevent.Logger {
 			return &fxevent.ZapLogger{Logger: logger}
 		}),
