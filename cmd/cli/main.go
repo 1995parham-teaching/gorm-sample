@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"log"
 	"time"
 
 	"github.com/1995parham-teaching/gorm-sample/internal/domain/model"
