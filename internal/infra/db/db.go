@@ -25,14 +25,14 @@ func Provide(cfg Config, logger *zap.Logger) (*gorm.DB, error) {
 		Logger: zapgorm2.New(logger),
 	})
 	if err != nil {
-		return nil, fmt.Errorf("database connection failed %w", err)
+		return nil, fmt.Errorf("database connection failed: %w", err)
 	}
 
 	db.Debug()
 
 	sqlDB, err := db.DB()
 	if err != nil {
-		return nil, fmt.Errorf("acquiring sql database failed", err)
+		return nil, fmt.Errorf("acquiring sql database failed: %w", err)
 	}
 
 	sqlDB.SetMaxIdleConns(cfg.MaxIdleConns)
