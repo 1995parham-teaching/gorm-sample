@@ -11,6 +11,9 @@
 Golang doesn't have many ORMs and one the famous one is [GORM](https://gorm.io/).
 Here we want to demonstrate some of its features using a very simple application.
 
+Also, using GORM's [`AutoMigrate`](https://gorm.io/docs/migration.html) feature is not suitable for production
+because you cannot findout what is going to be changed on each commit. [Atlas](https://atlasgo.io/getting-started) can help you with this.
+
 ## GORM
 
 Here is the official GORM package:
