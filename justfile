@@ -23,8 +23,7 @@ dev cmd *flags:
     fi
 
 # run tests in the dev environment
-test: (dev "up")
-    just seed
+test: seed
     go run ./cmd/cli/main.go
 
 seed: (dev "up")
