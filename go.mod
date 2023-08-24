@@ -1,6 +1,6 @@
 module github.com/1995parham-teaching/gorm-sample
 
-go 1.19
+go 1.21
 
 require (
 	ariga.io/atlas-go-sdk v0.1.0
