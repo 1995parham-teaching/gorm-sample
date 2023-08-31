@@ -16,8 +16,6 @@ services:
         [
           "CMD-SHELL",
           "pg_isready",
-          "-d",
-          "pgsql"
         ]
       interval: 10s
       timeout: 5s
