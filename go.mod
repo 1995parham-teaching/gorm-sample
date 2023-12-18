@@ -3,8 +3,8 @@ module github.com/1995parham-teaching/gorm-sample
 go 1.21
 
 require (
-	ariga.io/atlas-go-sdk v0.2.2
-	ariga.io/atlas-provider-gorm v0.1.1
+	ariga.io/atlas-go-sdk v0.2.3
+	ariga.io/atlas-provider-gorm v0.2.0
 	github.com/knadh/koanf/parsers/toml v0.1.0
 	github.com/knadh/koanf/providers/env v0.1.0
 	github.com/knadh/koanf/providers/file v0.1.0

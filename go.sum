@@ -1,7 +1,7 @@
-ariga.io/atlas-go-sdk v0.2.2 h1:eEOXfxFfWbs8a4+R/i7lSwIchzz6C8Kq4QPBs6YGpdQ=
-ariga.io/atlas-go-sdk v0.2.2/go.mod h1:owkEEXw6jqne5KPVDfKsYB7cwMiMk3jtOiAAeKxS/yU=
-ariga.io/atlas-provider-gorm v0.1.1 h1:Y0VsZCQkXJRYIJxenn2BM6sW2u9SkTca5mLvJumqrgE=
-ariga.io/atlas-provider-gorm v0.1.1/go.mod h1:jb8uYcN+ul8Nf7OVzi5Vd2y+SQXrI4dHYBEUCiCi/6Q=
+ariga.io/atlas-go-sdk v0.2.3 h1:DpKruiJ9ElJcNhYxnQM9ddzupHXEYFH0Jx6ZcZ7lKYQ=
+ariga.io/atlas-go-sdk v0.2.3/go.mod h1:owkEEXw6jqne5KPVDfKsYB7cwMiMk3jtOiAAeKxS/yU=
+ariga.io/atlas-provider-gorm v0.2.0 h1:6f8djycY7U683Aq7btlaHtMTlIFl1W6q0bgb6yzv8Ic=
+ariga.io/atlas-provider-gorm v0.2.0/go.mod h1:bE+I/NFRS6/F3B97gyhXFMksXkHqFeOfuD607iZxQww=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/benbjohnson/clock v1.3.0 h1:ip6w0uFQkncKQ979AypyG0ER7mqUSBdKLOgAle/AT8A=
 github.com/benbjohnson/clock v1.3.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
