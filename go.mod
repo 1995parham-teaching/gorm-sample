@@ -13,7 +13,7 @@ require (
 	github.com/tidwall/pretty v1.2.1
 	go.uber.org/fx v1.20.1
 	go.uber.org/zap v1.26.0
-	gorm.io/driver/postgres v1.5.4
+	gorm.io/driver/postgres v1.5.5
 	gorm.io/gorm v1.25.6
 	moul.io/zapgorm2 v1.3.0
 )
