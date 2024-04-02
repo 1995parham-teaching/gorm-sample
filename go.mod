@@ -14,7 +14,7 @@ require (
 	go.uber.org/fx v1.21.0
 	go.uber.org/zap v1.27.0
 	gorm.io/driver/postgres v1.5.7
-	gorm.io/gorm v1.25.8
+	gorm.io/gorm v1.25.9
 	moul.io/zapgorm2 v1.3.0
 )
 
