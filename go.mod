@@ -9,7 +9,7 @@ require (
 	github.com/knadh/koanf/providers/env v0.1.0
 	github.com/knadh/koanf/providers/file v0.1.0
 	github.com/knadh/koanf/providers/structs v0.1.0
-	github.com/knadh/koanf/v2 v2.1.0
+	github.com/knadh/koanf/v2 v2.1.1
 	github.com/tidwall/pretty v1.2.1
 	go.uber.org/fx v1.21.0
 	go.uber.org/zap v1.27.0
