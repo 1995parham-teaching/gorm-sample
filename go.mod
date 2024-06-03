@@ -11,7 +11,7 @@ require (
 	github.com/knadh/koanf/providers/structs v0.1.0
 	github.com/knadh/koanf/v2 v2.1.1
 	github.com/tidwall/pretty v1.2.1
-	go.uber.org/fx v1.21.1
+	go.uber.org/fx v1.22.0
 	go.uber.org/zap v1.27.0
 	gorm.io/driver/postgres v1.5.7
 	gorm.io/gorm v1.25.10
