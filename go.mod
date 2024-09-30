@@ -6,7 +6,7 @@ require (
 	ariga.io/atlas-go-sdk v0.6.3
 	ariga.io/atlas-provider-gorm v0.5.0
 	github.com/knadh/koanf/parsers/toml v0.1.0
-	github.com/knadh/koanf/providers/env v0.1.0
+	github.com/knadh/koanf/providers/env v1.0.0
 	github.com/knadh/koanf/providers/file v1.1.0
 	github.com/knadh/koanf/providers/structs v0.1.0
 	github.com/knadh/koanf/v2 v2.1.1
