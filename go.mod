@@ -13,14 +13,14 @@ require (
 	github.com/tidwall/pretty v1.2.1
 	go.uber.org/fx v1.23.0
 	go.uber.org/zap v1.27.0
-	gorm.io/driver/postgres v1.5.10
+	gorm.io/driver/postgres v1.5.11
 	gorm.io/gorm v1.25.12
 	moul.io/zapgorm2 v1.3.0
 )
 
 require (
 	github.com/fatih/structs v1.1.0 // indirect
-	github.com/fsnotify/fsnotify v1.7.0 // indirect
+	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/go-sql-driver/mysql v1.7.1 // indirect
 	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
 	github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9 // indirect
@@ -39,10 +39,10 @@ require (
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	go.uber.org/dig v1.18.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
-	golang.org/x/crypto v0.27.0 // indirect
-	golang.org/x/sync v0.8.0 // indirect
-	golang.org/x/sys v0.25.0 // indirect
-	golang.org/x/text v0.18.0 // indirect
+	golang.org/x/crypto v0.29.0 // indirect
+	golang.org/x/sync v0.9.0 // indirect
+	golang.org/x/sys v0.27.0 // indirect
+	golang.org/x/text v0.20.0 // indirect
 	gorm.io/driver/mysql v1.5.4 // indirect
 	gorm.io/driver/sqlite v1.5.5 // indirect
 	gorm.io/driver/sqlserver v1.5.3 // indirect
