@@ -1,8 +1,7 @@
 module github.com/1995parham-teaching/gorm-sample
 
-go 1.24.0
+go 1.24
 
-toolchain go1.24.1
 
 require (
 	ariga.io/atlas-go-sdk v0.7.1
