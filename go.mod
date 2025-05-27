@@ -4,7 +4,7 @@ go 1.24
 
 require (
 	ariga.io/atlas-go-sdk v0.7.1
-	ariga.io/atlas-provider-gorm v0.5.1
+	ariga.io/atlas-provider-gorm v0.5.2
 	github.com/knadh/koanf/parsers/toml v0.1.0
 	github.com/knadh/koanf/providers/env v1.1.0
 	github.com/knadh/koanf/providers/file v1.2.0
