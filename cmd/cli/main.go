@@ -39,13 +39,14 @@ func start(shutdowner fx.Shutdowner, db *gorm.DB, logger *zap.Logger) {
 	// please pay attention to time. you must provide the valid field when you are using
 	// NullTime.
 	// nolint: exhaustruct
-	if err := db.Create(&model.User{
+	err = db.Create(&model.User{
 		Model:    gorm.Model{},
 		ID:       1,
 		Name:     "Elahe Dastan",
 		Email:    "elahe.dstn@gmail.com",
 		Birthday: sql.NullTime{Time: birthday, Valid: true},
-	}).Error; err != nil {
+	}).Error
+	if err != nil {
 		logger.Fatal("cannot create user", zap.Error(err))
 	}
 
