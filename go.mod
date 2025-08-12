@@ -4,7 +4,7 @@ go 1.24
 
 require (
 	ariga.io/atlas-go-sdk v0.7.2
-	ariga.io/atlas-provider-gorm v0.5.4
+	ariga.io/atlas-provider-gorm v0.5.5
 	github.com/knadh/koanf/parsers/toml v0.1.0
 	github.com/knadh/koanf/providers/env v1.1.0
 	github.com/knadh/koanf/providers/file v1.2.0
@@ -19,6 +19,7 @@ require (
 )
 
 require (
+	ariga.io/atlas v0.36.2-0.20250801020723-2aaaf0682dd9 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/go-sql-driver/mysql v1.7.1 // indirect
@@ -32,7 +33,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/knadh/koanf/maps v0.1.2 // indirect
-	github.com/mattn/go-sqlite3 v1.14.22 // indirect
+	github.com/mattn/go-sqlite3 v1.14.28 // indirect
 	github.com/microsoft/go-mssqldb v1.7.2 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
