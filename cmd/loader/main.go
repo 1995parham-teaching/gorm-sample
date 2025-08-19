@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 
-	_ "ariga.io/atlas-go-sdk/recordriver"
 	"ariga.io/atlas-provider-gorm/gormschema"
 	"github.com/1995parham-teaching/gorm-sample/internal/domain/model"
 )
