@@ -3,7 +3,6 @@ module github.com/1995parham-teaching/gorm-sample
 go 1.24
 
 require (
-	ariga.io/atlas-go-sdk v0.7.2
 	ariga.io/atlas-provider-gorm v0.5.6
 	github.com/knadh/koanf/parsers/toml v0.1.0
 	github.com/knadh/koanf/providers/env v1.1.0
@@ -14,7 +13,7 @@ require (
 	go.uber.org/fx v1.24.0
 	go.uber.org/zap v1.27.0
 	gorm.io/driver/postgres v1.6.0
-	gorm.io/gorm v1.30.1
+	gorm.io/gorm v1.30.5
 	moul.io/zapgorm2 v1.3.0
 )
 
