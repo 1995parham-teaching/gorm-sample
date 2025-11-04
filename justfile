@@ -27,7 +27,7 @@ test: seed
     go run ./cmd/cli/main.go
 
 seed: (dev "up")
-    atlas migrate apply --env local
+    goose -dir migrations postgres "postgres://postgres:postgres@127.0.0.1:5432/pgsql?sslmode=disable" up
 
 # connect into the dev environment database
 database: (dev "up") (dev "exec" "database psql postgres://postgres:postgres@127.0.0.1:5432/pgsql?search_path=public&sslmode=disable")

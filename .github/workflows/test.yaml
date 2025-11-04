@@ -25,7 +25,7 @@ jobs:
       - uses: actions/setup-go@v6
         with:
           go-version-file: "go.mod"
-      - run: curl -sSf 'https://atlasgo.sh?test=1' | env ATLAS_DEBUG=true sh
+      - run: go install github.com/pressly/goose/v3/cmd/goose@latest
       - run: docker compose up --wait
-      - run: atlas migrate apply --env local
+      - run: goose -dir migrations postgres "postgres://postgres:postgres@127.0.0.1:5432/pgsql?sslmode=disable" up
       - run: go run cmd/cli/main.go

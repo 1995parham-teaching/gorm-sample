@@ -12,18 +12,24 @@ Golang doesn't have many ORMs and one the famous one is [GORM](https://gorm.io/)
 Here we want to demonstrate some of its features using a very simple application.
 
 Also, using GORM's [`AutoMigrate`](https://gorm.io/docs/migration.html) feature is not suitable for production
-because you cannot find out what is going to be changed on each commit. [Atlas](https://atlasgo.io/getting-started) can help you with this.
+because you cannot find out what is going to be changed on each commit. [Goose](https://github.com/pressly/goose) can help you with this.
 
-Atlas works based on its configuration defined in `atlas.hcl`. You can apply migrations with
+Goose is a database migration tool that manages SQL migrations. You can apply migrations with
 
 ```bash
-atlas migrate apply --env local
+goose -dir migrations postgres "postgres://postgres:postgres@127.0.0.1:5432/pgsql?sslmode=disable" up
 ```
 
-and see the differences with
+and rollback migrations with
 
 ```bash
-atlas migrate diff --env local
+goose -dir migrations postgres "postgres://postgres:postgres@127.0.0.1:5432/pgsql?sslmode=disable" down
+```
+
+To create a new migration:
+
+```bash
+goose -dir migrations create migration_name sql
 ```
 
 ## GORM

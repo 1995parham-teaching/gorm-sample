@@ -23,8 +23,8 @@ const prefix = "gorm_sample_"
 type Config struct {
 	fx.Out
 
-	Database db.Config     `json:"database,omitempty" koanf:"database"`
-	Logger   logger.Config `json:"logger,omitempty"   koanf:"logger"`
+	Database db.Config     `json:"database" koanf:"database"`
+	Logger   logger.Config `json:"logger"   koanf:"logger"`
 }
 
 func Provide() Config {
