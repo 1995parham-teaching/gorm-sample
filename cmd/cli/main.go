@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"database/sql"
 	"time"
 
@@ -26,7 +27,9 @@ func main() {
 	).Run()
 }
 
-func start(shutdowner fx.Shutdowner, db *gorm.DB, logger *zap.Logger) {
+func start(shutdowner fx.Shutdowner, gdb *gorm.DB, logger *zap.Logger) {
+	ctx := context.Background()
+
 	// I really love the way Go has for describing the date/time formats.
 	// you write down 2 Jan 2006 15:04:00 -0700 in your desired format
 	// and it will figure your format out.
@@ -35,29 +38,30 @@ func start(shutdowner fx.Shutdowner, db *gorm.DB, logger *zap.Logger) {
 		logger.Fatal("cannot parse datetime into given format", zap.Error(err))
 	}
 
-	// create user with gorm.
+	// create user with gorm generic API.
 	// please pay attention to time. you must provide the valid field when you are using
 	// NullTime.
 	// nolint: exhaustruct
-	err = db.Create(&model.User{
+	if err := gorm.G[model.User](gdb).Create(ctx, &model.User{
 		Model:    gorm.Model{},
 		ID:       1,
 		Name:     "Elahe Dastan",
 		Email:    "elahe.dstn@gmail.com",
 		Birthday: sql.NullTime{Time: birthday, Valid: true},
-	}).Error
-	if err != nil {
+	}); err != nil {
 		logger.Fatal("cannot create user", zap.Error(err))
 	}
 
-	var user model.User
-
-	db.First(&user, 1)
+	user, err := gorm.G[model.User](gdb).Where("id = ?", 1).First(ctx)
+	if err != nil {
+		logger.Fatal("cannot fetch first user", zap.Error(err))
+	}
 	logger.Info("first user from database", zap.Any("user", user))
 
-	var users []model.User
-
-	db.Find(&users)
+	users, err := gorm.G[model.User](gdb).Find(ctx)
+	if err != nil {
+		logger.Fatal("cannot fetch users", zap.Error(err))
+	}
 	logger.Info("users from database", zap.Any("users", users))
 
 	_ = shutdowner.Shutdown()
