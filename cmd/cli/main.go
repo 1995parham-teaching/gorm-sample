@@ -56,12 +56,14 @@ func start(shutdowner fx.Shutdowner, gdb *gorm.DB, logger *zap.Logger) {
 	if err != nil {
 		logger.Fatal("cannot fetch first user", zap.Error(err))
 	}
+
 	logger.Info("first user from database", zap.Any("user", user))
 
 	users, err := gorm.G[model.User](gdb).Find(ctx)
 	if err != nil {
 		logger.Fatal("cannot fetch users", zap.Error(err))
 	}
+
 	logger.Info("users from database", zap.Any("users", users))
 
 	_ = shutdowner.Shutdown()
