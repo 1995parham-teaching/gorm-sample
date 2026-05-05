@@ -1,6 +1,6 @@
 module github.com/1995parham-teaching/gorm-sample
 
-go 1.25.0
+go 1.26.0
 
 require (
 	github.com/knadh/koanf/parsers/toml v0.1.0
