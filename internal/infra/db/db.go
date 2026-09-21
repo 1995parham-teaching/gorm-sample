@@ -20,7 +20,7 @@ type Config struct {
 }
 
 func Provide(cfg Config, logger *zap.Logger) (*gorm.DB, error) {
-	// nolint: exhaustruct
+	// nolint: exhaustruct_v5
 	db, err := gorm.Open(postgres.Open(cfg.DSN), &gorm.Config{
 		Logger: zapgorm2.New(logger),
 	})

@@ -3,8 +3,13 @@ version: "2"
 linters:
   default: all
   disable:
+    # deprecated aliases and their successors, which `default: all` enables
+    # separately — disabling only one half leaves the other running.
     - wsl
+    - wsl_v5
     - gomodguard
+    - gomodguard_v2
+    - exhaustruct
     - depguard
     - tagliatelle
     - nolintlint

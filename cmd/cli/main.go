@@ -41,7 +41,7 @@ func start(shutdowner fx.Shutdowner, gdb *gorm.DB, logger *zap.Logger) {
 	// create user with gorm generic API.
 	// please pay attention to time. you must provide the valid field when you are using
 	// NullTime.
-	// nolint: exhaustruct
+	// nolint: exhaustruct_v5
 	if err := gorm.G[model.User](gdb).Create(ctx, &model.User{
 		Model:    gorm.Model{},
 		ID:       1,
