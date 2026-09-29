@@ -7,8 +7,8 @@ require (
 	github.com/knadh/koanf/providers/env v1.1.0
 	github.com/knadh/koanf/providers/file v1.2.1
 	github.com/knadh/koanf/providers/structs v1.0.1
-	github.com/knadh/koanf/v2 v2.3.6
-	github.com/tidwall/pretty v1.2.1
+	github.com/knadh/koanf/v2 v2.3.7
+	github.com/tidwall/pretty v1.2.2
 	go.uber.org/fx v1.24.0
 	go.uber.org/zap v1.28.0
 	gorm.io/driver/postgres v1.6.3
