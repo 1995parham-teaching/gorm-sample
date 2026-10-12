@@ -28,7 +28,7 @@ func Provide(cfg Config, logger *zap.Logger) (*gorm.DB, error) {
 		return nil, fmt.Errorf("database connection failed: %w", err)
 	}
 
-	db.Debug()
+	db = db.Debug()
 
 	sqlDB, err := db.DB()
 	if err != nil {
